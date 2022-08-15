@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <!--
+Необязательное задание.
+
+Необходимо реализовать функцию, которая будет принимать первым аргументом
+целое положительное число, в следующих трех аргументах функция принимает слова
+в разных склонениях.
+Функция должна возвращать одно из трех переданных в параметры слов подходящее
+под число, которое передано первым аргументом.
+
+Пример:
+console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+
+Функция должна работать с любым словом и любым целым положительным числом.
+Все аргументы, которые будут передаваться функции будут верны.
+-->
+    <script>
+        "use strict";
+
+        function declinationOfNumber(count, one, two, five) {
+            /* При просмотре решения видел, что также учитывается остаток от
+             деления на 100, но в этом случае нет каких-либо изменений и 
+             достаточно указать в else five для все остальных исходов.
+             Также модуль числа count не стал брать, т.к. принимаю, что 
+             количество по умолчанию только положительное */
+            const divide10 = +count % 10;
+            if (divide10 === 1) {
+                return one;
+            }
+            else if (divide10 > 1 && divide10 < 5) {
+                return two;
+            }
+            else {
+                return five;
+            }
+        }
+        console.log(declinationOfNumber(3, "яблоко", "яблока", "яблок"));
+        console.log(declinationOfNumber(105, "мяч", "мяча", "мячей"));
+        console.log(declinationOfNumber(8, "мяч", "мяча", "мячей"));
+        console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок"));
+        console.log(declinationOfNumber(3123, "мяч", "мяча", "мячей"));
+        console.log(declinationOfNumber(5421, "мяч", "мяча", "мячей"));
+        console.log(declinationOfNumber(6740, "яблоко", "яблока", "яблок"));
+        console.log(declinationOfNumber(6740327, "яблоко", "яблока", "яблок"));
+        console.log(declinationOfNumber(6740321, "яблоко", "яблока", "яблок"));
+
+    </script>
+</body>
+
+</html>

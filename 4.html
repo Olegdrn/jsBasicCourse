@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+
+<body>
+    <!--
+Обязательное задание.
+
+Необходимо реализовать четыре функции, каждая функция должна принимать по два
+числа и выполнять одну из операций (каждая функция выполняет одну из них):
+1. Сложение
+2. Разность
+3. Умножение
+4. Деление
+
+Необходимо сделать так, чтобы функция вернула число, например выражение
+`console.log(sum(2, 6));` должно вывести число 8 в консоль (sum - функция
+сложения в данном примере, ваши названия функций могут отличаться).
+
+Округлять значения, которые возвращают функции не нужно, однако, обратите
+внимание на разность, функция должна вычесть из большего числа меньшее, либо
+вернуть 0, если числа равны.
+
+Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать
+не нужно.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+    <script>
+        "use strict";
+
+        const firstNumber = Number.parseInt(prompt("Введите первое число"));
+        const secondNumber = Number.parseInt(prompt("Введите второе число"));
+
+        /**
+         * Функция складывает 2 числа.
+         * @param {number} a Первое число.
+         * @param {number} b Второе число.
+         * @returns {number} Результат сложения - число. 
+         */
+        function sum(a, b) {
+            return (a + b);
+        }
+        console.log(sum(firstNumber, secondNumber));
+
+        /**
+         * Функция вычитает меньшее число из большего.
+         * @param {number} a Первое число.
+         * @param {number} b Второе число.
+         * @returns {number} Результат вычитания - число. 
+         */
+        function diff(a, b) {
+            if (a < b) {
+                return (b - a);
+            }
+            else if (a > b) {
+                return (a - b);
+            }
+            else {
+                return 0;
+            }
+        }
+        console.log(diff(firstNumber, secondNumber));
+
+        /**
+         * Функция перемножает 2 числа.
+         * @param {number} a Первое число.
+         * @param {number} b Второе число.
+         * @returns {number} Результат умножения - число. 
+         */
+        function mult(a, b) {
+            return (a * b);
+        }
+        console.log(mult(firstNumber, secondNumber));
+
+        /**
+         * Функция делит 2 числа.
+         * @param {number} a Первое число.
+         * @param {number} b Второе число.
+         * @returns {number} Результат деления - число. 
+         */
+        function divide(a, b) {
+            return (a / b);
+        }
+        console.log(divide(firstNumber, secondNumber));
+
+
+    </script>
+</body>
+
+</html>
