@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
+стирать, код с решением задачи пишем под комментарием.
+-->
+
+  <p class="super_element">Привет</p>
+
+  <img src="https://placeimg.com/50/50/animals" alt="">
+  <img src="https://placeimg.com/50/50/arch" alt="">
+  <img src="https://placeimg.com/50/50/nature" alt="">
+  <img src="https://placeimg.com/50/50/people" alt="">
+  <img src="https://placeimg.com/50/50/tech" alt="">
+  <img src="https://placeimg.com/50/50/tech/grayscale" alt="">
+  <img src="https://placeimg.com/50/50/tech/sepia" alt="">
+
+  <br>
+
+  <button>Кнопка</button>
+  <button class="super_element">Кнопка с классом btn</button>
+  <button>Кнопка</button>
+
+  <br>
+
+  <textarea></textarea>
+
+  <br>
+
+  <ul>
+    <li>
+      <button>Кнопка 1</button>
+    </li>
+    <li>
+      <button>Кнопка 2</button>
+    </li>
+    <li>
+      <button>Кнопка 3</button>
+    </li>
+    <li>
+      <button>Кнопка 4</button>
+    </li>
+  </ul>
+
+  <script>
+    "use strict";
+
+    /*
+    1. Необходимо вывести сообщение в консоль "все теги прогрузились", когда все
+    теги будут созданы браузером.
+    */
+    const loadDom = () => {
+      console.log('все теги прогрузились');
+    };
+    document.addEventListener('DOMContentLoaded', loadDom);
+
+
+    /*
+    2. Необходимо вывести сообщение в консоль "страница загрузилась", когда все
+    ресурсы страницы будут загружены.
+    */
+    const loadFunc = () => {
+      console.log('страница загрузилась');
+    };
+    window.addEventListener('load', loadFunc);
+
+    /*
+    3. При клике на какой-либо тег на странице в консоль должно выводиться
+    сообщение наподобие:
+    Класс "super_element" присутствует в элементе "div".
+    сообщение должно определять присутствует или отсутствует класс "super_element"
+    у элемента, а также выводить в нижнем регистре верный тег в данной строке, по
+    которому был совершен клик.
+    Необходимо использовать делегирование.
+    */
+
+    const ev = event => {
+      if (event.target.classList.contains('super_element')) {
+        return console.log(`Класс "super_element" присутствует в элементе ${event.target.tagName}`);
+      } else
+        return console.log(`Класс "super_element" отсутствует в элементе ${event.target.tagName}`);
+    }
+
+    document.addEventListener('click', ev);
+
+    /*
+    4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение:
+    "Вы навели на textarea."
+     */
+    const txtAr = document.querySelector('textarea');
+    const indicFunc = () => {
+      console.log("Вы навели на textarea")
+    };
+    txtAr.addEventListener('mouseover', indicFunc);
+
+    /*
+    5. Необходимо повесить событие клика на тег ul. В обработчике события в
+    консоль необходимо выводить текст, который записан внутри элемента кнопки,
+    по которой был произведен клик.
+    Если клик был не по кнопке, то ничего выводить не нужно.
+    Необходимо использовать делегирование.
+     */
+
+    const ulEl = document.querySelector('ul');
+    const ulFunc = event => {
+      if (event.target.tagName !== "BUTTON") {
+        return;
+      } else
+        return console.log(event.target.textContent);
+    };
+
+    ulEl.addEventListener('click', ulFunc);
+
+
+    /*
+    6. Вопрос: Почему в console.log пишется сначала текст из 5 задания и только
+    потом выводится текст из 3 задания, если мы кликаем по кнопкам в ul?
+    Ответ необходимо написать здесь же, под этим комментарием, своими словами.
+    */
+    /* В 3-м задании событие относится ко всему document, в задании 5 к элементу
+    ul. Обработка событий происходит от частного к общему (от ребенка к родителю)
+    Поэтому при клике на ul событие обрабытывается в первую очередь. 
+     /*
+ 
+     7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега li.
+      */
+    const eachSecLi = document.querySelectorAll('li:nth-child(2n)');
+    eachSecLi.forEach(el => el.style.backgroundColor = 'red');
+
+
+  </script>
+</body>
+
+</html>
