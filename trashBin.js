@@ -43,6 +43,7 @@ function getTotalBasketCount() {
 }
 
 function getTotalBasketPrice() {
+  const productsCart = Object.values(basket);
   let price = 0;
   Object.values(basket).forEach((element) => {
     price += element.price * element.count;
